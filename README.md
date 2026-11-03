@@ -4,8 +4,8 @@ A responsive event discovery and registration website built for the **K Explore 
 
 **Developed by:** Rohan Mandal
 
-**Live site:** _add your deployed link here_
-**Repository:** _add your GitHub link here_
+**Live site:** https://mandalrohan.github.io/melaevent/
+**Repository:** 
 
 ## Features
 - Hero section with a live countdown to 1 January
