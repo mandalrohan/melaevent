@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>melaevent – Discover and register for events</title>
+<meta name="description" content="Browse upcoming events, filter by category and register in seconds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="#top">melaevent</a>
+  <nav aria-label="Main">
+    <a href="#events">Events</a>
+    <a href="#mine">My registrations <span id="regCount" class="pill">0</span></a>
+  </nav>
+  <button id="themeBtn" class="icon-btn" aria-label="Switch to dark mode" title="Toggle theme">🌙</button>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-copy">
+      <h1>Find something worth showing up for.</h1>
+      <p>Workshops, gigs, runs and tastings. Search what's coming up, pick a seat and register in under a minute.</p>
+      <form class="search" role="search" id="heroSearch">
+        <label for="q" class="sr">Search events</label>
+        <input id="q" type="search" placeholder="Search by name, venue or topic" autocomplete="off">
+        <button type="submit" class="btn">Search</button>
+      </form>
+    </div>
+    <aside class="next" aria-live="off">
+      <p class="next-label">Counting down to</p>
+      <h2 id="nextTitle">&nbsp;</h2>
+      <p id="nextMeta" class="muted"></p>
+      <div class="clock" id="clock" role="timer" aria-label="Time until 1 January">
+        <div><b id="cd-d">00</b><span>days</span></div>
+        <div><b id="cd-h">00</b><span>hours</span></div>
+        <div><b id="cd-m">00</b><span>mins</span></div>
+        <div><b id="cd-s">00</b><span>secs</span></div>
+      </div>
+      <button class="btn" id="nextBtn">Browse events</button>
+    </aside>
+  </section>
+
+  <section id="events" class="wrap">
+    <div class="head">
+      <h2>Upcoming events</h2>
+      <p id="count" class="muted" aria-live="polite"></p>
+    </div>
+    <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
+    <div class="grid" id="grid"></div>
+    <p id="empty" class="empty" hidden>No events match that search. Try a different word or choose “All”.</p>
+  </section>
+
+  <section id="mine" class="wrap">
+    <div class="head"><h2>My registrations</h2></div>
+    <ul id="myList" class="mylist"></ul>
+    <p id="myEmpty" class="empty">You haven't registered for anything yet. Pick an event above to get started.</p>
+  </section>
+</main>
+
+<footer class="foot">melaevent · Designed and developed by Rohan Mandal for the K Explore Web Designing task · Registrations are saved in your browser only.</footer>
+
+<dialog id="dlg" aria-labelledby="dTitle">
+  <button class="icon-btn close" id="dClose" aria-label="Close">✕</button>
+  <div id="dBanner" class="banner"></div>
+  <div class="dbody">
+    <h2 id="dTitle"></h2>
+    <p id="dMeta" class="muted"></p>
+    <p id="dDesc"></p>
+    <p id="dSeats" class="seats"></p>
+
+    <form id="form" novalidate>
+      <h3>Register</h3>
+      <div class="field"><label for="fName">Full name</label>
+        <input id="fName" name="name" autocomplete="name"><small class="err" id="eName"></small></div>
+      <div class="field"><label for="fEmail">Email</label>
+        <input id="fEmail" name="email" type="email" autocomplete="email"><small class="err" id="eEmail"></small></div>
+      <div class="field"><label for="fPhone">Phone number</label>
+        <input id="fPhone" name="phone" type="tel" autocomplete="tel" placeholder="10-digit mobile number"><small class="err" id="ePhone"></small></div>
+      <div class="field"><label for="fEvent">Event</label>
+        <select id="fEvent" name="event"></select><small class="err" id="eEvent"></small></div>
+      <button class="btn wide" type="submit">Confirm registration</button>
+    </form>
+
+    <div id="ok" class="ok" hidden tabindex="-1">
+      <div class="tick">✓</div>
+      <h3 id="okTitle">You're in!</h3>
+      <p id="okText"></p>
+      <button class="btn" id="okClose">Done</button>
+    </div>
+  </div>
+</dialog>
+<script src="js/script.js"></script>
+</body>
+</html>
